@@ -4,12 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Felipe Plata Moreno</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 
 <body>
-  <button id="modo">Cambiar modo</button>
+  <div id="particles-js"></div>
+
+  <nav class="navbar">
+    <a href="#perfil">Perfil profesional</a>
+    <a href="#experiencia">Experiencia profesional</a>
+    <a href="#proyectos">Proyectos académicos</a>
+    <a href="#educacion">Educación</a>
+  </nav>
+
+<div class="theme-toggle">
+  <input type="checkbox" id="modo">
+  <label for="modo" class="switch">
+    <span class="label-light">LIGHT</span>
+    <span class="label-dark">DARK</span>
+    <div class="slider">
+      <svg class="icon sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+
+      <svg class="icon moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 0 1 11.21 3 7 7 0 1 0 21 12.79z"></path>
+      </svg>
+    </div>
+  </label>
+</div>
+
+
+
   <header>
+    <br/>
     <h1>Felipe Plata Moreno</h1>
     <p class="important"><b>Analista de Datos | Ciencia de Datos | I+D | Python | Power BI</b></p>
     <div class="contact">
@@ -26,14 +69,14 @@
   </header>
 
   <main>
-    <section>
+    <section id="perfil">
       <h2>Perfil Profesional</h2>
       <p>
         Estudiante de Física con formación en Tecnología Mecánica y experiencia práctica en anotación de datos, etiquetado, análisis de datos y entrenamiento de modelos de inteligencia artificial en entornos académicos y tecnológicos. Competente en Python, Power BI y bibliotecas especializadas para procesamiento, visualización y análisis predictivo. Experiencia en anotación de conjuntos de datos multilingües (inglés/español), clasificación de contenido y control de calidad para aplicaciones de IA. Destacado por estructurar soluciones basadas en datos, adaptabilidad e impacto mediante automatización, pensamiento crítico y mejora continua.
       </p>
     </section>
 
-    <section>
+    <section id="experiencia">
       <h2>Experiencia Profesional</h2>
 
       <article>
@@ -86,7 +129,7 @@
       </article>
     </section>
 
-    <section>
+    <section id="proyectos">
       <h2>Proyectos Académicos</h2>
       <ul>
         <li><strong>Laboratorio de Óptica:</strong> Validación experimental de la Ley de Malus y comportamiento de la polarización de la luz, analizando y visualizando datos con Python (NumPy, SciPy, Matplotlib).</li>
@@ -96,7 +139,7 @@
       </ul>
     </section>
 
-    <section>
+    <section id="educacion">
       <h2>Educación</h2>
       <ul>
         <li><strong>Pregrado en Física</strong> – Universidad Nacional de Colombia, Bogotá D.C. (2025)</li>
@@ -127,6 +170,7 @@
   <footer>
     <p>© 2025 Felipe Plata Moreno</p>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
