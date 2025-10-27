@@ -1,0 +1,1 @@
+En este proyecto, se muestra mi Hoja de Vida en una pagina web, donde se muestra lo aprendido durante el Bootcamp de programación, es decir, los lenguajes HTML,CSS y JavaScript, adicionalmente, se realizó una presentación para mostrar cada sección del código, de cada uno de los lenguajes y poder entenderlos más facilmente
