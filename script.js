@@ -1,154 +1,22 @@
-body {
-  font-family: 'Inter', sans-serif;
-  margin: 40px auto;
-  max-width: 900px;
-  color: #e6edf3;
-  line-height: 1.6;
-  background: radial-gradient(circle at 50% 50%, #0d1117 0%, #010409 100%);
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const body = document.body;
+  const modoToggle = document.getElementById('modo');
 
-/* Fondo animado */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-image:
-    radial-gradient(circle at 20% 20%, rgba(0, 115, 177, 0.801), transparent 60%),
-    radial-gradient(circle at 80% 80%, rgba(50, 193, 221, 0.25), transparent 60%),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.466) 1px, transparent 1px),
-    linear-gradient(rgba(255, 255, 255, 0.466) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 60px 60px, 60px 60px;
-  animation: meshmove 20s linear infinite;
-  z-index: -1;
-}
+  if (localStorage.getItem('darkMode') === 'true') {
+    body.classList.add('dark');
+    modoToggle.checked = true;
+  }
 
-@keyframes meshmove {
-  from { background-position: 0 0, 0 0, 0 0, 0 0; }
-  to { background-position: 100px 50px, -100px -50px, 60px 60px, 60px 60px; }
-}
+  modoToggle.addEventListener('change', () => {
+    body.classList.toggle('dark');
+    localStorage.setItem('darkMode', body.classList.contains('dark'));
+  });
 
-/* Títulos */
-h1 {
-  text-align: center;
-  color: #fff;
-}
-h2 {
-  text-align: center;
-  color: #173ee9e3;
-}
-nav.navbar {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-/* Secciones */
-section {
-  margin-bottom: 25px;
-  background: rgba(116, 195, 201, 0.781);
-  padding: 15px 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 4px rgba(0,0,0,0.08);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease;
-}
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Enlaces */
-a {
-  color: #58a6ff;
-  text-decoration: none;
-  position: relative;
-  transition: color 0.3s ease;
-}
-a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -2px;
-  left: 0;
-  background-color: #58a6ff;
-  transition: width 0.3s ease;
-}
-a:hover::after {
-  width: 100%;
-}
-
-/* Interruptor tecnológico */
-.theme-toggle {
-  position: fixed;
-  top: 15px;
-  right: 20px;
-  z-index: 11;
-}
-.switch {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 90px;
-  height: 35px;
-  background: #e5e7eb;
-  border-radius: 20px;
-  padding: 0 6px;
-  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.1),
-              inset -2px -2px 5px rgba(255,255,255,0.7);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: background 0.4s ease;
-}
-.label-light, .label-dark {
-  font-size: 11px;
-  font-weight: bold;
-  color: #555;
-  z-index: 2;
-  user-select: none;
-  transition: color 0.3s ease;
-}
-.slider {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 28px;
-  height: 28px;
-  background: linear-gradient(145deg, #ffffff, #d9d9d9);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
-  transition: all 0.4s ease;
-  z-index: 1;
-}
-.icon {
-  width: 15px;
-  height: 15px;
-  color: #0073b1;
-  transition: opacity 0.3s ease;
-}
-.moon { position: absolute; opacity: 0; }
-#modo { display: none; }
-#modo:checked + .switch {
-  background: #1e1e1e;
-}
-#modo:checked + .switch .slider {
-  left: calc(100% - 31px);
-  background: linear-gradient(145deg, #3b3b3b, #1e1e1e);
-}
-#modo:checked + .switch .icon.sun { opacity: 0; }
-#modo:checked + .switch .icon.moon { opacity: 1; color: #58a6ff; }
-#modo:checked + .switch .label-light { color: #888; }
-#modo:checked + .switch .label-dark { color: #f5f5f5; }
-
-body.dark {
-  background: radial-gradient(circle at 50% 50%, #000000 0%, #0d1117 100%);
-}
-body.dark section {
-  background: rgba(20, 20, 20, 0.6);
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
-}
+  const sections = document.querySelectorAll('section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  });
+  sections.forEach(sec => observer.observe(sec));
+});
