@@ -7,7 +7,6 @@ body {
   background: radial-gradient(circle at 50% 50%, #0d1117 0%, #010409 100%);
 }
 
-/* Fondo animado */
 body::before {
   content: "";
   position: fixed;
@@ -28,7 +27,7 @@ body::before {
   to { background-position: 100px 50px, -100px -50px, 60px 60px, 60px 60px; }
 }
 
-/* Títulos */
+
 h1 {
   text-align: center;
   color: #fff;
@@ -42,7 +41,7 @@ nav.navbar {
   margin-bottom: 30px;
 }
 
-/* Secciones */
+
 section {
   margin-bottom: 25px;
   background: rgba(116, 195, 201, 0.781);
@@ -58,7 +57,7 @@ section.visible {
   transform: translateY(0);
 }
 
-/* Enlaces */
+
 a {
   color: #58a6ff;
   text-decoration: none;
@@ -79,7 +78,7 @@ a:hover::after {
   width: 100%;
 }
 
-/* Interruptor tecnológico */
+
 .theme-toggle {
   position: fixed;
   top: 15px;
