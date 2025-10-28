@@ -2,7 +2,7 @@
 
 
  .slide-image {
-  width: 260px;         
+  width: 500px;         
   max-width: 100%;      
   height: auto;         
   display: block;
@@ -188,7 +188,7 @@ pre {
   overflow-y: auto;         
   overflow-x: hidden;       
   max-width: 850px;
-  height: 250px;            
+  height: 550px;            
   margin: 25px auto;
   padding: 15px 20px;
   line-height: 1.5em;
